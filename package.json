@@ -1,8 +1,8 @@
 {
-  "name": "tvnodesql",
+  "name": "polimapusa",
   "version": "1.0.0",
-  "description": "sample tv node sql",
-  "main": "app.js",
+  "description": "gen1 pmu node sql",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
