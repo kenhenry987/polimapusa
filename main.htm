@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p></p>
+    <p></p>
+    <p></p>
+    <button type="button" onclick="bt1_onclick()">Click Me!</button>
+    <button type="button" onclick="AjaxStatic()">Ajax Static</button>
+    <button type="button" onclick="AjaxMySql()">Ajax MySql</button>
+    <input type="text" id="sqlsname" name="sqlsname" value="bb" />
+    <button type="button" onclick="AjaxDate()">Ajax Date</button>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <textarea id="tadebug" name="tadebug" rows="16" cols="120"> </textarea>
+    <script>
+      function bt1_onclick() {
+        debugprint("hello button 1");
+      }
+
+      function debugprint(smsg) {
+        document.getElementById("tadebug").innerHTML =
+          smsg + "\n" + document.getElementById("tadebug").innerHTML;
+      }
+      function AjaxStatic() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.open("GET", "static.htm", true);
+        xhttp.onload = function () {
+          debugprint(xhttp.responseText);
+        };
+        xhttp.send();
+      }
+      function AjaxMySql() {
+        let sqlsname = document.getElementById("sqlsname").value;
+        //let sqlsname = $("#sqlsname").val();
+        //let sqlsname = "test";
+        //debugprint("sqlsname=" + sqlsname);
+        var xhttp = new XMLHttpRequest();
+        xhttp.open("GET", "//localhost:3000/apig/ids?sname=" + sqlsname, true);
+        xhttp.onload = function () {
+          debugprint(xhttp.responseText);
+        };
+        xhttp.send();
+      }
+      function AjaxDate() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.open("GET", "//localhost:3000/apidate/idd", true);
+        xhttp.onload = function () {
+          debugprint(xhttp.responseText);
+        };
+        xhttp.send();
+      }
+    </script>
+  </body>
+</html>
